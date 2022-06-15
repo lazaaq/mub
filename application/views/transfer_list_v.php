@@ -249,7 +249,7 @@ function save() {
 	var string = $("#form").serialize();
 	//validasi teks kosong
 	var dari_kas_id = $("#dari_kas_id").val();
-	var string = $("#form").serialize();
+
 	if(dari_kas_id == 0) {
 		$.messager.show({
 			title:'<div><i class="fa fa-warning"></i> Peringatan ! </div>',
@@ -276,6 +276,7 @@ function save() {
 
 	var isValid = $('#form').form('validate');
 	if (isValid) {
+		console.log(string)
 		$.ajax({
 			type	: "POST",
 			url: url,
