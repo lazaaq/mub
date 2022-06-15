@@ -249,9 +249,11 @@ function create(){
 
 function save() {
 	var string = $("#form").serialize();
+
 	var kas = $("#kas").val();
 	var akun_id = $("#akun_id").val();
-	var string = $("#form").serialize();
+	console.log(string)
+
 	if(kas == 0) {
 		$.messager.show({
 			title:'<div><i class="fa fa-warning"></i> Peringatan ! </div>',
@@ -262,6 +264,7 @@ function save() {
 		$("#kas").focus();
 		return false;
 	}
+	console.log(kas)
 
 	if(akun_id == 0) {
 		$.messager.show({
@@ -271,16 +274,19 @@ function save() {
 			showType:'slide'
 		});
 		$("#akun_id").focus();
+		console.log('tes')
 		return false;
 	}
 
 	var isValid = $('#form').form('validate');
 	if (isValid) {
+		console.log(url)
 		$.ajax({
 			type	: "POST",
 			url: url,
 			data	: string,
 			success	: function(result){
+				console.log('berhasil brodi');
 				var result = eval('('+result+')');
 				$.messager.show({
 					title:'<div><i class="fa fa-info"></i> Informasi</div>',
@@ -289,6 +295,7 @@ function save() {
 					showType:'slide'
 				});
 				if(result.ok) {
+					console.log('berhasillll');
 					jQuery('#dialog-form').dialog('close');
 					//clearSearch();
 					$('#dg').datagrid('reload');

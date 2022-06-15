@@ -196,7 +196,7 @@ class Anggota extends OperatorController {
 
 				$no = 1;
 				foreach ($data_list_x as $data_kolom) {
-					if((@$data_kolom['A'] == NULL || trim(@$data_kolom['A'] == '')) ) { continue; }
+				//	if((@$data_kolom['A'] == NULL || trim(@$data_kolom['A'] == '')) ) { continue; }
 					foreach ($data_kolom as $kolom => $val) {
 						if(in_array($kolom, array('E', 'K', 'L')) ) {
 							$val = ltrim($val, "'");

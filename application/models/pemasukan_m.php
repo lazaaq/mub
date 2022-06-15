@@ -126,17 +126,23 @@ class Pemasukan_m extends CI_Model {
 		if(str_replace(',', '', $this->input->post('jumlah')) <= 0) {
 			return FALSE;
 		}		
+
+		$tanggal_u = date('Y-m-d H:i');
 		$data = array(			
-			'tgl_catat'		=>	$this->input->post('tgl_transaksi'),
-			'jumlah'					=>	str_replace(',', '', $this->input->post('jumlah')),
-			'keterangan'			=>	$this->input->post('ket'),
+			'tgl_catat'		=>	$this->input->post('tgl_transaksi') ? $this->input->post('tgl_transaksi') : null,
+			'jumlah'					=>	str_replace(',', '', $this->input->post('jumlah')) ? str_replace(',', '', $this->input->post('jumlah')) : 0,
+			'keterangan'			=>	$this->input->post('ket') ? $this->input->post('ket') : null,
 			'dk'						=>	'D',
 			'akun'					=>	'Pemasukan',
-			'untuk_kas_id'			=>	$this->input->post('kas_id'),
-			'jns_trans'				=>	$this->input->post('akun_id'),
-			'user_name'				=> $this->data['u_name']
+			'dari_kas_id' => $this->input->post('kas_id') ? $this->input->post('kas_id') : null,
+			'untuk_kas_id'			=>	$this->input->post('kas_id') ? $this->input->post('kas_id') : null,
+			'jns_trans'				=>	$this->input->post('akun_id') ? $this->input->post('akun_id') : null,
+			'update_data'			=> $tanggal_u,
+			'user_name'				=> 'admin'
 			);
-		return $this->db->insert('tbl_trans_kas', $data);
+
+		$create = $this->db->insert('tbl_trans_kas', $data);
+		return true;
 	}
 
 	public function update($id)
