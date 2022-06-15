@@ -138,7 +138,7 @@ class Pemasukan_m extends CI_Model {
 			'untuk_kas_id'			=>	$this->input->post('kas_id') ? $this->input->post('kas_id') : null,
 			'jns_trans'				=>	$this->input->post('akun_id') ? $this->input->post('akun_id') : null,
 			'update_data'			=> $tanggal_u,
-			'user_name'				=> 'admin'
+			'user_name'				=> $this->data['u_name']
 			);
 
 		$create = $this->db->insert('tbl_trans_kas', $data);

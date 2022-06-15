@@ -245,7 +245,6 @@ function clearSearch(){
 function create(){
 	$('#dialog-form').dialog('open').dialog('setTitle','Tambah Data');
 	$('#form').form('clear');
-	
 	$('#tgl_transaksi_txt').val('<?php echo $txt_tanggal;?>');
 	$('#tgl_transaksi').val('<?php echo $tanggal;?>');
 	$('#kas option[value="0"]').prop('selected', true);
@@ -263,7 +262,6 @@ function save() {
 	var kas = $("#kas").val();
 	var akun_id = $("#akun_id").val();
 
-	var string = $("#form").serialize();
 	if(kas == 0) {
 		$.messager.show({
 			title:'<div><i class="fa fa-warning"></i> Peringatan ! </div>',
