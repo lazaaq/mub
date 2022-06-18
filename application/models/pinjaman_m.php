@@ -648,16 +648,18 @@ class Pinjaman_m extends CI_Model {
 		$this->db->set('jml_brg', 'jml_brg - 1', FALSE);
 		$this->db->update('tbl_barang');
 
+		$tanggal_u = date('Y-m-d H:i');
 		$data = array(			
 			'tgl_pinjam'			=>	$this->input->post('tgl_pinjam'),
 			'anggota_id'			=>	$this->input->post('anggota_id'),
 			'barang_id'				=>	$this->input->post('barang_id'),
 			'lama_angsuran'		=>	$this->input->post('lama_angsuran'),
-			'jumlah'					=>	str_replace(',', '', $this->input->post('jumlah')),
+			'jumlah'					=>	str_replace(',', '', $this->input->post('jumlah')) ? str_replace(',', '', $this->input->post('jumlah')) : 0,
 			'bunga'					=>	$this->input->post('bunga'),
 			'biaya_adm'				=>	str_replace(',', '', $this->input->post('biaya_adm')),
 			'dk'						=>	'K',
 			'jns_trans'				=>	'7',
+			'update_data'			=> $tanggal_u,
 			'kas_id'					=>	$this->input->post('kas_id'),
 			'keterangan'			=> $this->input->post('ket'),
 			'user_name'				=> $this->data['u_name']

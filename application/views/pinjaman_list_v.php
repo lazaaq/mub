@@ -424,6 +424,8 @@ function save() {
 		return false;
 	}
 
+	console.log(url);
+	console.log(string);
 	$.ajax({
 		type	: "POST",
 		url: url,

@@ -230,6 +230,7 @@ class Pinjaman extends OperatorController {
 
 		if($this->pinjaman_m->create()){
 			echo json_encode(array('ok' => true, 'msg' => '<div class="text-green"><i class="fa fa-check"></i> Data berhasil disimpan </div>'));
+			return true;
 		} else {
 			echo json_encode(array('ok' => false, 'msg' => '<div class="text-red"><i class="fa fa-ban"></i> Gagal menyimpan data, pastikan nilai lebih dari <strong>0 (NOL)</strong>. </div>'));
 		}
