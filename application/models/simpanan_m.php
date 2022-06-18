@@ -126,20 +126,23 @@ class Simpanan_m extends CI_Model {
 	public function create() {
 		if(str_replace(',', '', $this->input->post('jumlah')) <= 0) {
 			return FALSE;
-		}		
+		}
+
+		$tanggal_u = date('Y-m-d H:i');
 		$data = array(			
-			'tgl_transaksi'		=>	$this->input->post('tgl_transaksi'),
-			'anggota_id'			=>	$this->input->post('anggota_id'),
-			'jenis_id'				=>	$this->input->post('jenis_id'),
-			'jumlah'					=>	str_replace(',', '', $this->input->post('jumlah')),
-			'keterangan'			=> $this->input->post('ket'),
+			'tgl_transaksi'		=>	$this->input->post('tgl_transaksi') ? $this->input->post('tgl_transaksi') : null,
+			'anggota_id'			=>	$this->input->post('anggota_id') ? $this->input->post('anggota_id') : null,
+			'jenis_id'				=>	$this->input->post('jenis_id') ? $this->input->post('jenis_id') : null,
+			'jumlah'					=>	str_replace(',', '', $this->input->post('jumlah')) ? str_replace(',', '', $this->input->post('jumlah')) : null,
+			'keterangan'			=> $this->input->post('ket') ? $this->input->post('ket') : null,
 			'akun'					=>	'Setoran',
 			'dk'						=>	'D',
-			'kas_id'					=>	$this->input->post('kas_id'),
-			'user_name'				=> $this->data['u_name'],
-			'nama_penyetor'			=> $this->input->post('nama_penyetor'),
-			'no_identitas'			=> $this->input->post('no_identitas'),
-			'alamat'					=> $this->input->post('alamat')
+			'kas_id'					=>	$this->input->post('kas_id') ? $this->input->post('kas_id') : null,
+			'update_data' => $tanggal_u,
+			'user_name'				=> $this->data['u_name'] ? $this->data['u_name'] : null,
+			'nama_penyetor'			=> $this->input->post('nama_penyetor') ? $this->input->post('nama_penyetor') : null,
+			'no_identitas'			=> $this->input->post('no_identitas') ? $this->input->post('no_identitas') : null,
+			'alamat'					=> $this->input->post('alamat') ? $this->input->post('alamat') : null,
 			);
 		return $this->db->insert('tbl_trans_sp', $data);
 	}

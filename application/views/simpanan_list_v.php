@@ -385,6 +385,8 @@ function save() {
 
 	var isValid = $('#form').form('validate');
 	if (isValid) {
+		console.log(url);
+		console.log(string);
 		$.ajax({
 			type	: "POST",
 			url: url,
