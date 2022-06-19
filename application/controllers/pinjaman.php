@@ -207,9 +207,9 @@ class Pinjaman extends OperatorController {
 				<a href="'.site_url('cetak_pinjaman').'/cetak/' . $r->id . '"  title="Cetak Bukti Transaksi" target="_blank"> <i class="glyphicon glyphicon-print"></i> Nota </a>';
 			$i++;
 		}
-	//keys total & rows wajib bagi jEasyUI
-	$result = array('total'=>$data['count'],'rows'=>$rows);
-	echo json_encode($result); //return nya json
+		//keys total & rows wajib bagi jEasyUI
+		$result = array('total'=>$data['count'],'rows'=>$rows);
+		echo json_encode($result); //return nya json
 	}
 
 	function get_jenis_barang() {

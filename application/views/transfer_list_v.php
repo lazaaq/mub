@@ -80,61 +80,61 @@ striped="true">
 <!-- Dialog Form -->
 <div id="dialog-form" class="easyui-dialog" show= "blind" hide= "blind" modal="true" resizable="false" style="width:370px; height:300px; padding-left:20px; padding-top:20px; " closed="true" buttons="#dialog-buttons" style="display: none;">
 	<form id="form" method="post" novalidate>
-	<table style="height:200px" >
-						<tr style="height:35px">
-							<td>Tanggal Transaksi </td>
-							<td>:</td>
-							<td>
-								<div class="input-group date dtpicker col-md-5" style="z-index: 9999 !important;">
-									<input type="text" name="tgl_transaksi_txt" id="tgl_transaksi_txt" style="width:150px; height:25px" required="true" readonly="readonly" />
-									<input type="hidden" name="tgl_transaksi" id="tgl_transaksi" />
-									<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-								</div>
-							</td>	
-						</tr>
-					
-						<tr style="height:35px">
-							<td>Jumlah </td>
-							<td>:</td>
-							<td>
-								<input class="easyui-numberbox" id="jumlah" name="jumlah" data-options="precision:0,groupSeparator:',',decimalSeparator:'.'" class="easyui-validatebox" required="true" style="width:195px; height:25px"  />
-							</td>	
-						</tr>
-						<tr style="height:35px">
-							<td> Keterangan </td>
-							<td>:</td>
-							<td>
-								<input id="ket" name="ket" style="width:190px; height:20px" >
-							</td>	
-						</tr>
-						<tr style="height:35px">
-							<td>Ambil Dari Kas</td>
-							<td>:</td>
-							<td>
-								<select id="dari_kas_id" name="dari_kas_id" style="width:195px; height:25px" class="easyui-validatebox" required="true">
-									<option value="0"> -- Pilih Kas --</option>			
-									<?php	
-									foreach ($kas_id as $row) {
-										echo '<option value="'.$row->id.'">'.$row->nama.'</option>';
-									}
-									?>
-								</select>
-							</td>
-						</tr>
-						<tr style="height:35px">
-							<td>Transfer Ke Kas</td>
-							<td>:</td>
-							<td>
-								<select id="untuk_kas_id" name="untuk_kas_id" style="width:195px; height:25px" class="easyui-validatebox" required="true">
-									<option value="0"> -- Pilih Kas --</option>			
-									<?php	
-									foreach ($kas_id as $row) {
-										echo '<option value="'.$row->id.'">'.$row->nama.'</option>';
-									}
-									?>
-								</select>
-							</td>
-						</tr>
+		<table style="height:200px" >
+			<tr style="height:35px">
+				<td>Tanggal Transaksi </td>
+				<td>:</td>
+				<td>
+					<div class="input-group date dtpicker col-md-5" style="z-index: 9999 !important;">
+						<input type="text" name="tgl_transaksi_txt" id="tgl_transaksi_txt" style="width:150px; height:25px" required="true" readonly="readonly" />
+						<input type="hidden" name="tgl_transaksi" id="tgl_transaksi" />
+						<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+					</div>
+				</td>	
+			</tr>
+		
+			<tr style="height:35px">
+				<td>Jumlah </td>
+				<td>:</td>
+				<td>
+					<input class="easyui-numberbox" id="jumlah" name="jumlah" data-options="precision:0,groupSeparator:',',decimalSeparator:'.'" class="easyui-validatebox" required="true" style="width:195px; height:25px"  />
+				</td>	
+			</tr>
+			<tr style="height:35px">
+				<td> Keterangan </td>
+				<td>:</td>
+				<td>
+					<input id="ket" name="ket" style="width:190px; height:20px" >
+				</td>	
+			</tr>
+			<tr style="height:35px">
+				<td>Ambil Dari Kas</td>
+				<td>:</td>
+				<td>
+					<select id="dari_kas_id" name="dari_kas_id" style="width:195px; height:25px" class="easyui-validatebox" required="true">
+						<option value="0"> -- Pilih Kas --</option>			
+						<?php	
+						foreach ($kas_id as $row) {
+							echo '<option value="'.$row->id.'">'.$row->nama.'</option>';
+						}
+						?>
+					</select>
+				</td>
+			</tr>
+			<tr style="height:35px">
+				<td>Transfer Ke Kas</td>
+				<td>:</td>
+				<td>
+					<select id="untuk_kas_id" name="untuk_kas_id" style="width:195px; height:25px" class="easyui-validatebox" required="true">
+						<option value="0"> -- Pilih Kas --</option>			
+						<?php	
+						foreach ($kas_id as $row) {
+							echo '<option value="'.$row->id.'">'.$row->nama.'</option>';
+						}
+						?>
+					</select>
+				</td>
+			</tr>
 		</table>
 	</form>
 </div>
@@ -195,10 +195,10 @@ function fm_filter_tgl() {
 	},
 
 	function(start, end) {
-//$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-$('#reportrange span').html(start.format('D MMM YYYY') + ' - ' + end.format('D MMM YYYY'));
-doSearch();
-});
+		//$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+		$('#reportrange span').html(start.format('D MMM YYYY') + ' - ' + end.format('D MMM YYYY'));
+		doSearch();
+	});
 }
 </script>
 
@@ -217,12 +217,12 @@ function form_select_clear() {
 }
 
 function doSearch(){
-//alert($('input[name=daterangepicker_start]').val());
-$('#dg').datagrid('load',{
-kode_transaksi: $('#kode_transaksi').val(),
-tgl_dari: 	$('input[name=daterangepicker_start]').val(),
-tgl_sampai: $('input[name=daterangepicker_end]').val()
-});
+	//alert($('input[name=daterangepicker_start]').val());
+	$('#dg').datagrid('load',{
+	kode_transaksi: $('#kode_transaksi').val(),
+	tgl_dari: 	$('input[name=daterangepicker_start]').val(),
+	tgl_sampai: $('input[name=daterangepicker_end]').val()
+	});
 }
 
 function clearSearch(){

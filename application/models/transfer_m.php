@@ -18,7 +18,7 @@ class Transfer_m extends CI_Model {
 			$out = $query->result();
 			return $out;
 		} else {
-			return FALSE;
+			return array();
 		}
 	}
 
